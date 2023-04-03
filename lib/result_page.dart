@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class ResultPage extends StatelessWidget {
-
   ResultPage({required this.imc, required this.igc});
 
   final double imc;
@@ -12,39 +11,44 @@ class ResultPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text('Resultado',
-        style: TextStyle(
-          fontSize: 25
-        ),),
+        title: const Text(
+          'Resultado',
+          style: TextStyle(fontSize: 25),
+        ),
       ),
       body: Container(
         margin: const EdgeInsets.only(top: 250),
         child: Center(
           child: Column(
             children: [
-              Text('Seu IMC é ${imc.toStringAsFixed(2)}',
-              style: const TextStyle(
-                color: Colors.black,
-                fontSize: 20,
-                fontWeight: FontWeight.bold
-              ),),
-              Text('Seu IGC é ${igc.toStringAsFixed(2)}',
-              style: const TextStyle(
-                color: Colors.black,
-                fontSize: 20,
-                fontWeight: FontWeight.bold
+              Text(
+                'Seu IMC é ${imc.toStringAsFixed(2)}',
+                style: const TextStyle(
+                    color: Colors.black,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold),
               ),
+              Text(
+                'Seu IGC é ${igc.toStringAsFixed(2)}',
+                style: const TextStyle(
+                    color: Colors.black,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 25),
               ElevatedButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                }, 
-                child: const Text('Calcular novamente'))
+                  style: ElevatedButton.styleFrom(
+                      shape: const RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(0))),
+                      side: const BorderSide(color: Colors.black, width: 2)),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: const Text('Calcular novamente'))
             ],
-          )
+          ),
         ),
-      )
+      ),
     );
   }
 }
